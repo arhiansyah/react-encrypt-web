@@ -10,3 +10,15 @@ body {
   height: 225px;
   margin-left: 25%;
 }
+
+.img-center {
+  margin-left: 5%;
+  width: 1;
+  height: 1;
+}
+
+.form-ce {
+  width: 75px;
+  height: 75px;
+  margin-left: -11125%;
+}

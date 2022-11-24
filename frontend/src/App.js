@@ -13,9 +13,6 @@ import Login from './pages/Login';
 //import component dashboard
 import Dashboard from './pages/Dashboard';
 
-//import component edit
-import Edit from './pages/Edit';
-
 function App() {
   return (
     <div>
@@ -23,7 +20,6 @@ function App() {
         <Route exact path="/" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path='/product/${id}/edit' component={Edit} />
       </Switch>
     </div>
   );
