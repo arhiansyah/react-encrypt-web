@@ -108,7 +108,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::where('id', $id)->delete();
+        return response()->json([
+            'message' => 'success delete data'
+        ]);
     }
 
     public function showID($id)
