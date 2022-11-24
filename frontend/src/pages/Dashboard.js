@@ -17,6 +17,7 @@ import axios from 'axios';
 import { Button, Row, Modal, Form } from 'react-bootstrap';
 
 
+
 function Dashboard() {
 
 
@@ -87,10 +88,11 @@ function Dashboard() {
             console.log('Something Wrong');
         }
     }
-
     //hook useEffect
+    const deleteTrigger = async (id) => {
+        await axios.delete(`http://localhost:8000/api/product/${id}`);
+    }
     useEffect(() => {
-
         //check token empty
         if(!token) {
             //redirect login page
@@ -98,13 +100,10 @@ function Dashboard() {
         }
 
         //call function "fetchData"
-        // fetchData();
+        fetchData();
         fetchProducts();
-    }, []);
+    },[product]);
 
-    const deleteData = async (id) => {
-        await axios.delete(`http://localhost:3000/api/product/${id}`);
-    }
     //function logout
     const logoutHanlder = async () => {
         //set axios header dengan type Authorization + Bearer token
@@ -167,8 +166,8 @@ function Dashboard() {
                                                 <td>{ index + 1 }</td>
                                                 <td><Image className='img-foto' src={products.image} alt="cover"></Image></td>
                                                 <td>{ products.name }</td>
-                                                <td><button  className='btn btn-primary btn-sm'>Edit</button></td>
-                                                <td><button onClick={deleteData(products.id)}  className='btn btn-danger btn-sm'>Delete</button></td>
+                                                <td><button className='btn btn-primary btn-sm'>Edit</button></td>
+                                                <td><button onClick={() => deleteTrigger(products.id)} className='btn btn-danger btn-sm'>Delete</button></td>
                                             </tr>
                                         )) }
                                     </tbody> :
